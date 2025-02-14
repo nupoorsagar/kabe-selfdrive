@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KABE - SelfDrive</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="contact">
+            <p>Call/WhatsApp: <a href="tel:7708997617">7708997617</a> / <a href="tel:9244375857">9244375857</a></p>
+            <p><a href="https://www.instagram.com/kabe_carmate/" target="_blank">Instagram</a> | <a href="https://www.youtube.com/@KABEV" target="_blank">YouTube</a></p>
+        </div>
+        <div class="logo">
+            <img src="logo.png" alt="KABE - SelfDrive Logo">
+        </div>
+    </header>
+    
+    <section class="car-list">
+        <div class="car">
+            <img src="creta.jpg" alt="Creta">
+            <h2>Creta</h2>
+            <p>₹2700/day (SUV 5-seater) [D]</p>
+            <button class="rent-btn" data-car="Creta">Rent Now</button>
+        </div>
+        <div class="car">
+            <img src="baleno.jpg" alt="Baleno">
+            <h2>Baleno</h2>
+            <p>₹2200/day (Mini SUV 5-seater) [P]</p>
+            <button class="rent-btn" data-car="Baleno">Rent Now</button>
+        </div>
+        <div class="car">
+            <img src="swift.jpg" alt="Swift">
+            <h2>Swift</h2>
+            <p>₹2200/day (Sedan) [D]</p>
+            <button class="rent-btn" data-car="Swift">Rent Now</button>
+        </div>
+        <div class="car">
+            <img src="ertiga.jpg" alt="Ertiga">
+            <h2>Ertiga</h2>
+            <p>₹3000/day (8-seater Lux) [D]</p>
+            <button class="rent-btn" data-car="Ertiga">Rent Now</button>
+        </div>
+    </section>
+
+    <div id="confirmation" class="hidden">
+        <p id="confirm-message"></p>
+        <button onclick="closeConfirmation()">Close</button>
+    </div>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .contact {
+        background-color: red;
+        padding: 10px;
+        font-size: 18px;
+    }
+    .car-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .car {
+        background-color: #222;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .rent-btn {
+        background-color: red;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    document.querySelectorAll('.rent-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const carName = this.getAttribute('data-car');
+            document.getElementById('confirm-message').innerText = `You have selected ${carName}. Contact us to proceed.`;
+            document.getElementById('confirmation').classList.remove('hidden');
+        });
+    });
+    
+    function closeConfirmation() {
+        document.getElementById('confirmation').classList.add('hidden');
+    }
+</script>
